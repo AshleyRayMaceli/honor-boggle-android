@@ -14,15 +14,15 @@
         android:layout_height="wrap_content"
         android:text="Placeholder String"
         android:id="@+id/textView"
+        android:layout_marginTop="88dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="119dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Submit Word"
-        android:id="@+id/button"
+        android:id="@+id/submitWord"
         android:layout_above="@+id/button2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -35,4 +35,14 @@
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/userAnswer"
+        android:layout_above="@+id/submitWord"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="77dp"
+        android:hint="Enter &quot;Word&quot; Here" />
+
 </RelativeLayout>
