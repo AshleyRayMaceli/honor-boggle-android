@@ -12,12 +12,16 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView mTextview;
-    private Button mSubmitWord;
-    private EditText mUserAnswer;
+    @Bind(R.id.submitWord) Button mSubmitWord;
+    @Bind(R.id.textView) TextView mTextview;
+    @Bind(R.id.userAnswer) EditText mUserAnswer;
+//    private TextView mTextview;
+//    private Button mSubmitWord;
+//    private EditText mUserAnswer;
     private List<String> validWords = new ArrayList<>();
 
     private List generateRandomString() {
@@ -51,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean letterCheck(String answer, String randomCharacters) {
-        boolean letterInvalid = true;
+        boolean letterInvalid = false;
         for (int i = 0; i < answer.length(); i ++) {
             Character letter = answer.charAt(i);
             String stringLetter = letter.toString();
-            if (randomCharacters.contains(stringLetter)) {
-                letterInvalid = false;
+            if (!(randomCharacters.contains(stringLetter))) {
+                letterInvalid = true;
             }
         }
         return letterInvalid;
@@ -69,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         final String randomCharacters = generateRandomString().toString();
-        mSubmitWord = (Button) findViewById(R.id.submitWord);
-        mUserAnswer = (EditText) findViewById(R.id.userAnswer);
-        mTextview = (TextView) findViewById(R.id.textView);
+//        mSubmitWord = (Button) findViewById(R.id.submitWord);
+//        mUserAnswer = (EditText) findViewById(R.id.userAnswer);
+//        mTextview = (TextView) findViewById(R.id.textView);
         mTextview.setText(randomCharacters);
 
         mSubmitWord.setOnClickListener(new View.OnClickListener() {
