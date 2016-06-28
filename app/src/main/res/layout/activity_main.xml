@@ -16,25 +16,29 @@
         android:id="@+id/textView"
         android:layout_marginTop="88dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Submit Word"
         android:id="@+id/submitWord"
+        android:layout_marginBottom="43dp"
         android:layout_above="@+id/button2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="76dp" />
+        android:background="@color/colorAccent" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Score round"
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="38dp"
+        android:background="#f69b40" />
 
     <EditText
         android:layout_width="wrap_content"

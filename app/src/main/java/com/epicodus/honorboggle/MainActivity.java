@@ -1,6 +1,7 @@
 package com.epicodus.honorboggle;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        Typeface bebasFont = Typeface.createFromAsset(getAssets(), "fonts/BEBAS.ttf");
+        mTextview.setTypeface(bebasFont);
 
         final String randomCharacters = generateRandomString().toString();
         mTextview.setText(randomCharacters);
