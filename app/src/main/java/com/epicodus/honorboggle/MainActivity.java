@@ -1,5 +1,6 @@
 package com.epicodus.honorboggle;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,10 +20,8 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.submitWord) Button mSubmitWord;
     @Bind(R.id.textView) TextView mTextview;
     @Bind(R.id.userAnswer) EditText mUserAnswer;
-//    private TextView mTextview;
-//    private Button mSubmitWord;
-//    private EditText mUserAnswer;
-    private List<String> validWords = new ArrayList<>();
+    @Bind(R.id.button2) Button mScoreButton;
+    private ArrayList<String> validWords = new ArrayList<>();
 
     private List generateRandomString() {
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -56,11 +55,16 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean letterCheck(String answer, String randomCharacters) {
         boolean letterInvalid = false;
+        String localCharacters = randomCharacters;
         for (int i = 0; i < answer.length(); i ++) {
             Character letter = answer.charAt(i);
             String stringLetter = letter.toString();
-            if (!(randomCharacters.contains(stringLetter))) {
+            if (!(localCharacters.contains(stringLetter))) {
                 letterInvalid = true;
+            } else {
+                localCharacters.indexOf(letter);
+                localCharacters = localCharacters.substring(0, localCharacters.indexOf(letter)) + localCharacters.substring(localCharacters.indexOf(letter) + 1, localCharacters.length());
+                Log.d("localCharacters", localCharacters);
             }
         }
         return letterInvalid;
@@ -73,10 +77,16 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         final String randomCharacters = generateRandomString().toString();
-//        mSubmitWord = (Button) findViewById(R.id.submitWord);
-//        mUserAnswer = (EditText) findViewById(R.id.userAnswer);
-//        mTextview = (TextView) findViewById(R.id.textView);
         mTextview.setText(randomCharacters);
+
+        mScoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ResultsActivity.class);
+                intent.putStringArrayListExtra("validWords", validWords);
+                startActivity(intent);
+            }
+        });
 
         mSubmitWord.setOnClickListener(new View.OnClickListener() {
             @Override
