@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 localCharacters.indexOf(letter);
                 localCharacters = localCharacters.substring(0, localCharacters.indexOf(letter)) + localCharacters.substring(localCharacters.indexOf(letter) + 1, localCharacters.length());
-                Log.d("localCharacters", localCharacters);
             }
         }
         return letterInvalid;
@@ -97,9 +96,11 @@ public class MainActivity extends AppCompatActivity {
                 } else if (!(lengthCheck(answer))) {
                     Toast.makeText(MainActivity.this, "Word must be at least 3 letters.", Toast.LENGTH_LONG).show();
                 } else if ((letterCheck(answer, randomCharacters))) {
-                    Toast.makeText(MainActivity.this, "Word must contain only listed letters.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Word must contain only listed letters and letters may only be used as many times as they appear.", Toast.LENGTH_LONG).show();
                 } else {
                     validWords.add(answer);
+                    Toast.makeText(MainActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                    mUserAnswer.setText("");
                     Log.d("validWords", "validWords" + validWords.toString());
                 }
             }
