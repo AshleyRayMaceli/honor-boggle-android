@@ -1,4 +1,4 @@
-![Screenshot](boggle-screenshot.png)
+![Screenshot](boggle-screenshot.jpeg)
 
 # _Honor Boggle_
 
